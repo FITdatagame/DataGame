@@ -1,9 +1,6 @@
 language: cpp
 compiler: g++
 
-env:
-- ENV_CFLAGS="-DNOGFX"
-
 before_install:
 - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 - sudo apt-add-repository --yes ppa:zoogie/sdl2-snapshots
@@ -13,7 +10,7 @@ install:
 - sudo apt-get install -qq libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev g++-4.8
 - export CXX="g++-4.8"
 
-script: make
+script: make -f Makefile.travis -j 5
 
 notifications:
   email: false
