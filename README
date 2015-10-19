@@ -1,0 +1,19 @@
+Hra využívá knihovny SDL2, SDL2_ttf, SDL2_image a SDL2_gfx.
+
+Při vývoji doporučuji používat Linux s nainstalovanými výše popsanými knihovnami a přiložený Makefile.
+Zmíněné knihovny lze velmi snadno nainstalovat například na Ubuntu pomocí příkazu:
+sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev libsdl2-gfx-dev
+
+Hru je samozřejmě možné zkompilovat i na Windows například pomocí kompilátoru MinGW, avšak instalace potřebných
+knihoven není tak jednoduchá jako v Linuxu.
+Po zprovoznění vývojového prostředí MinGW (které zde popisovat nebudu) je potřeba ještě doinstalovat knihovny:
+https://www.libsdl.org/download-2.0.php - development library pro MinGW
+https://www.libsdl.org/projects/SDL_ttf/ - development library pro MinGW
+https://www.libsdl.org/projects/SDL_image/ - development library pro MinGW
+Knihovna SDL2_gfx bohužel nenabízí ke stažení binárky, a tak by ji bylo potřeba zkompilovat. Naštěstí se v enginu
+používá minimálně, a tak ji můžeme vynechat. Přiložený Makefile-win pro Windows toto zařídí zadefinováním makra NOGFX.
+Kompilaci pro Windows lze spustit přes skript make.bat.
+
+Zdrojové kódy jsou rozděleny na 2 moduly - engine a game. Jako engine jsem si dovolil zvolit část mého vlastního
+minimalistického enginu z jiného projektu - myslím, že pro naše účely bude stačit a navíc ho máme v podstatě bez práce.
+V modulu game je pak kód samotné hry.
