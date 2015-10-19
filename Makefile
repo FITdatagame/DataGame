@@ -1,5 +1,5 @@
-COMPILER = $CXX
-LINKER = $CXX
+COMPILER = $(CXX)
+LINKER = $(CXX)
 MODULES = game engine
 SOURCE_DIR = src
 TEMP_DIR = tmp
