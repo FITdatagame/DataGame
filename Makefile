@@ -3,7 +3,7 @@ LINKER = $(CXX)
 MODULES = game engine
 SOURCE_DIR = src
 TEMP_DIR = tmp
-CFLAGS = -std=c++11 -Wall -pedantic -Wno-long-long -O0 -ggdb $(CFLAGS)
+CFLAGS = -std=c++11 -Wall -pedantic -Wno-long-long -O0 -ggdb $(ENV_CFLAGS)
 LFLAGS = -lSDL2 -lSDL2_gfx -lSDL2_ttf -lSDL2_image
 TARGET = datagame
 

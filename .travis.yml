@@ -2,7 +2,7 @@ language: cpp
 compiler: g++
 
 env:
-- CFLAGS="-DNOGFX"
+- ENV_CFLAGS="-DNOGFX"
 
 before_install:
 - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
