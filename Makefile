@@ -1,5 +1,5 @@
-COMPILER = g++
-LINKER = g++
+COMPILER = $CXX
+LINKER = $CXX
 MODULES = game engine
 SOURCE_DIR = src
 TEMP_DIR = tmp
