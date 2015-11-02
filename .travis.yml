@@ -11,6 +11,7 @@ install:
 - export CXX="g++-4.8"
 
 script:
+- make clean
 - make -f Makefile.travis -j 5
 - ./datagame testing
 
