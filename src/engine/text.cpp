@@ -6,6 +6,7 @@
 using namespace std;
 
 #include "window.h"
+#include "tests.h"
 
 Text::Text(const string & text, double size, const Color & color, int maxWidth) : text(text), size(size), color(color), maxWidth(maxWidth)
 {
@@ -43,6 +44,8 @@ void Text::refresh()
 		SDL_DestroyTexture(texture);
 		texture = NULL;
 	}
+	
+	if(TESTING) return;
 
 	// Using resolution independent font size, should be 14px on 600px resolution
 	TTF_Font * font = TTF_OpenFont("res/font.ttf", size * Window::getHeight() / 42.0);

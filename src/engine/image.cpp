@@ -10,12 +10,15 @@ using namespace std;
 #endif
 
 #include "window.h"
+#include "tests.h"
 
 map<string, SDL_Texture*> Image::imageDB;
 
 Image::Image(const string & filename, int width, int height) : filename(filename)
 {
 	texture = NULL;
+	
+	if(TESTING) return;
 
 	auto it = imageDB.find(filename);
 	if(it != imageDB.end())

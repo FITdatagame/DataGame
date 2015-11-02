@@ -4,6 +4,7 @@
 
 #include "engine.h"
 #include "clickable.h"
+#include "tests.h"
 
 Clickable * Input::selected = NULL;
 int Input::mPosX = 0;
@@ -13,6 +14,8 @@ int Input::mPosY = 0;
 void Input::update(Object * root)
 {
 	SDL_Event sdl_event;
+	
+	if(TESTING) return;
 
 	while(SDL_PollEvent(&sdl_event) > 0)
 	{

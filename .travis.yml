@@ -10,7 +10,9 @@ install:
 - sudo apt-get install -qq libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev g++-4.8
 - export CXX="g++-4.8"
 
-script: make -f Makefile.travis -j 5
+script:
+- make -f Makefile.travis -j 5
+- ./datagame testing
 
 notifications:
   email: false

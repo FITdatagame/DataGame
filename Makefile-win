@@ -1,10 +1,10 @@
-COMPILER = $(CXX)
-LINKER = $(CXX)
+COMPILER = mingw32-g++
+LINKER = mingw32-g++
 MODULES = game engine game_tests
 SOURCE_DIR = src
 TEMP_DIR = tmp
-CFLAGS = -std=c++11 -Wall -pedantic -Wno-long-long -DNOGFX
-LFLAGS = -lSDL2 -lSDL2_ttf -lSDL2_image
+CFLAGS = -U__STRICT_ANSI__ -DNOGFX -std=c++11 -Wall -pedantic -Wno-long-long -O0 -ggdb
+LFLAGS = -static-libgcc -static-libstdc++ -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_image
 TARGET = datagame
 
 SRC_DIR = $(addprefix $(SOURCE_DIR)/,$(MODULES))
@@ -35,7 +35,7 @@ $(TARGET): $(OBJECTS)
 checkdirs: $(BUILD_DIR)
 
 $(BUILD_DIR):
-	@mkdir -p $@
+	@mkdir $(subst /,\\,$@)
 
 clean:
 	rm -rf $(BUILD_DIR)

@@ -1,6 +1,7 @@
 #include "rectangle.h"
 
 #include "window.h"
+#include "tests.h"
 
 Rectangle::Rectangle(int width, int height, const Color & color) : width(width), height(height), color(color)
 {
@@ -38,6 +39,8 @@ void Rectangle::refresh()
 		SDL_DestroyTexture(texture);
 		texture = NULL;
 	}
+	
+	if(TESTING) return;
 
 	SDL_Surface * surface = SDL_CreateRGBSurface(0, width, height, 32, 0xFF000000, 0x00FF0000, 0x0000FF00, 0x000000FF);
 	if(!surface)
