@@ -1,9 +1,15 @@
 #ifndef TESTS_H
 #define TESTS_H
 
+#include <string>
+using namespace std;
+
 extern bool TESTING;
 
-bool antivirusManagerTest();
+string antivirusManagerTest();
+string diskTest();
+string fileTest();
+string folderTest();
 
 void runTesting();
 
