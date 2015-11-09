@@ -172,5 +172,5 @@ void runTesting()
 	
 	TESTING = false;
 	
-	exit(res);
+	exit(res ? 0 : 1);
 }
