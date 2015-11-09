@@ -7,6 +7,7 @@
 #include "antivirusManager.h"
 #include "folder.h"
 #include "disk.h"
+#include "fileManager.h"
 
 bool TESTING = false;
 
@@ -138,6 +139,22 @@ string folderTest()
 	return "";
 }
 
+string fileManagerTest()
+{
+	int permissions = 644;
+	string desired = "rw- r-- r-- (644)";
+	
+	FileManager * fm = new FileManager(0, 0);
+	
+	string res = fm->parsePermissions(permissions);
+	
+	delete fm;
+	
+	if(desired != res) return "parsepermissions failed";
+
+	return "";
+}
+
 void runTesting()
 {
 	TESTING = true;
@@ -169,6 +186,12 @@ void runTesting()
 	res &= test = out == string("");
 	if(!test) printf("%s\n", out.c_str());
 	printf("Testing folder %s\n", test ? "[OK]" : "[FAILED]");
+	
+	printf("\nTesting filemanager:\n");
+	out = fileManagerTest();
+	res &= test = out == string("");
+	if(!test) printf("%s\n", out.c_str());
+	printf("Testing filemanager %s\n", test ? "[OK]" : "[FAILED]");
 	
 	TESTING = false;
 	

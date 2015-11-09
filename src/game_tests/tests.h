@@ -10,6 +10,7 @@ string antivirusManagerTest();
 string diskTest();
 string fileTest();
 string folderTest();
+string fileManagerTest();
 
 void runTesting();
 

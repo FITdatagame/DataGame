@@ -45,6 +45,10 @@ public:
 	/** @brief Nastaví funkci, která se vykoná po kliknutí na soubor.
 	*/
 	void setOnClickFunc(function<void (File * file)> func) { onClickFunc = func; }
+	
+	/** @brief Vypíše práva v textové podobě.
+	*/
+	string parsePermissions(int permissions);
 
 private:
 
@@ -55,11 +59,6 @@ private:
 	/** @brief Skryje kontextové menu.
 	*/
 	void hideContextMenu();
-
-	/** @brief Vypíše práva v textové podobě.
-	*/
-	string parsePermissions(int permissions);
-
 
 	/** @brief Adresářová cesta k souboru, který byl zkopírován do schránky.
 	*/
