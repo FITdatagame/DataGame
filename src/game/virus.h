@@ -52,7 +52,7 @@ public:
 	*/
 	bool isAlive() { return filesCnt > 0; }
 
-private:
+public:
 
 	/** @brief Udává, zda je vir aktivní (může škodit).
 	*/

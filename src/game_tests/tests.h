@@ -11,6 +11,7 @@ string diskTest();
 string fileTest();
 string folderTest();
 string fileManagerTest();
+string virusTest();
 
 void runTesting();
 

@@ -8,6 +8,7 @@
 #include "folder.h"
 #include "disk.h"
 #include "fileManager.h"
+#include "virus.h"
 
 bool TESTING = false;
 
@@ -155,6 +156,42 @@ string fileManagerTest()
 	return "";
 }
 
+string virusTest()
+{
+	vector<File*> fls;
+	Folder * f = new Folder("test");
+	
+	File * file = new File();
+	
+	Virus * v = new Virus();
+	v->type = Virus::CREATING;
+	v->nextHarm = 0;
+	file->setVirus(v);
+	
+	f->addFile(file);
+	
+	f->getAllFilesRecursively(fls);
+	if(fls.size() != 1) return "file count mismatch 1";
+	
+	v->update(f);
+	
+	fls.clear();
+	f->getAllFilesRecursively(fls);
+	if(fls.size() != 2) return "file count mismatch 2";
+	
+	v->type = Virus::ERASING;
+	v->nextHarm = 0;
+	v->update(f);
+	
+	fls.clear();
+	f->getAllFilesRecursively(fls);
+	if(fls.size() != 2) return "file count mismatch 3";
+	
+	delete f;
+	
+	return "";
+}
+
 void runTesting()
 {
 	TESTING = true;
@@ -192,6 +229,12 @@ void runTesting()
 	res &= test = out == string("");
 	if(!test) printf("%s\n", out.c_str());
 	printf("Testing filemanager %s\n", test ? "[OK]" : "[FAILED]");
+	
+	printf("\nTesting virus:\n");
+	out = virusTest();
+	res &= test = out == string("");
+	if(!test) printf("%s\n", out.c_str());
+	printf("Testing virus %s\n", test ? "[OK]" : "[FAILED]");
 	
 	TESTING = false;
 	
